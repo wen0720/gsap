@@ -8,11 +8,16 @@ module.exports = {
   entry: {
     index: './index.js',
     progress: './progress.js',
-    scrollTriggerTest1: './scrolltrigger-test1.js'
+    scrollTriggerTest1: './scrolltrigger-test1.js',
+    somethingGoWithPage: './somethingGoWithPage.js',
+    horizontal: './horizontal.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
+    // ref. https://github.com/webpack/webpack/issues/11660
+    chunkLoading: false,
+    wasmLoading: false,
   },
   module: {
     rules: [
@@ -52,5 +57,17 @@ module.exports = {
       filename: 'progress.html',
       chunks: ['progress'],
     }),
+    new HtmlWebpackPlugin({
+      template: 'scrolltrigger/horizontal.html',
+      title: 'horizontal',
+      filename: 'horizontal.html',
+      chunks: ['horizontal'],
+    }),
+    new HtmlWebpackPlugin({
+      template: 'scrolltrigger/somethingGoWithPage.html',
+      title: 'somethingGoWithPage',
+      filename: 'somethingGoWithPage.html',
+      chunks: ['somethingGoWithPage'],
+    })
   ]
 }
