@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP</title>
+</head>
+<body>
+  <h3>svg 中心點差異：viewbox 中心 vs 每個 react 的中心</h3>
+  <div>
+    <svg id="Layer_1"  width="300px" height="200px" viewBox="0 0 300 200">
+      <rect class="box" x="150" y="100" width="50" height="50"/>
+      <rect class="box" x="105.377" y="13.156" width="31.934" height="31.934"/>
+      <rect class="box" x="250.08" y="150" width="31.934" height="31.934"/>
+      <rect class="box" x="53.181" y="109.162" width="31.676" height="31.676"/>
+      <rect class="box" x="251.577" y="22.717" width="32.968" height="32.968"/>
+      <rect class="box" x="21.398" y="29.123" width="41.43" height="41.43"/>
+    </svg>
+    <button id="svgOrigin">spin each box around &lt;svg&lt;</button>
+    <button id="transformOrigin">spin each box around it's own center</button>
+    <div style="margin-top:100px;">
+      <h3>透過 attrplugin 操作 attr</h3>
+      <svg id="attrDemo" width="600px" height="207px" viewBox="0 0 600 207">
+        <style>
+          .element{
+            stroke:#88ce02;
+            stroke-width:4px;
+            fill:none;
+            }
+          #attrDemo{
+            background:#1d1d1d;
+            }
+            .st1{
+            font-family:Arial;
+            font-size:12;
+            fill:#fff;
+            }
+          .rule {
+            fill:none;
+            stroke:#d3d3d3;
+            stroke-width:1px;
+            }
+        </style>
+        <circle id="cssCircle" class="element" cx="57.464" cy="89.464" r="30.131"/>
+        <circle id="attrCircle" class="element" cx="358" cy="89.464" r="30.131"/>
+        <rect id="attrRectangle" x="327.869" y="145.667" class="element" width="134" height="49.333" rx="0"/>
+        <line class="rule" x1="300" y1="46.595" x2="300" y2="192.595"/>
+      </svg>
+    </div>
+    <div style="margin-top:100px;">
+      <h3>透過 % 數操作 transform</h3>
+      <svg width="600px" height="205.061px" viewBox="0 0 600 205.061">
+        <line class="rule" x1="181.223" y1="0" x2="181.223" y2="205.061"/>
+        <rect x="18.24" y="11.245" class="rect" width="163.319" height="38.865"/>
+        <rect x="53.611" y="58.843" class="rect" width="127.948" height="38.865"/>
+        <rect x="105.14" y="107.314" class="rect" width="76.419" height="38.865"/>
+        <rect x="142.694" y="154.773" class="rect" width="38.865" height="38.865"/>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>
